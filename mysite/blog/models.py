@@ -2,6 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset()\
+                            .filter(status=Post.Status.PUBLISHED)
+
 class Post(models.Model):
 
     class Status(models.TextChoices): 
@@ -20,6 +25,9 @@ class Post(models.Model):
     status = models.CharField(max_length=2,
                               choices=Status.choices,
                               default=Status.DRAFT)
+    
+    objects = models.Manager() # manager by default
+    published = PublishedManager() # the new one
 
     class Meta: # метаданные модели
         ordering = ['-publish'] # если в запросе не указан порядок сортировки постов, задается обратный порядок (сначала новые) по полю publish
