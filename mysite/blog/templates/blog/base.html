@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tailwind Starter Template - Ghostwind CSS : Tailwind Toolbox</title>
+	<meta name="author" content="name">
+  <meta name="description" content="description here">
+	<meta name="keywords" content="keywords,here">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  {% block head %}
+  {% endblock %}
+</head>
+
+<body class="bg-gray-200 font-sans leading-normal tracking-normal">
+{% block content %}
+{% endblock %}
+
+<footer class="bg-gray-900">	
+  <div class="container max-w-6xl mx-auto flex items-center px-2 py-8">
+    <div class="w-full mx-auto flex flex-wrap items-center">
+      <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+        <a class="text-gray-900 no-underline hover:text-gray-900 hover:no-underline" href="#">
+          <span class="text-base text-gray-200">Ghostwind</span>
+        </a>
+      </div>
+      <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+        <ul class="list-reset flex justify-center flex-1 md:flex-none items-center">
+          <li>
+          <a class="inline-block py-2 px-3 text-white no-underline" href="index.html">HOME</a>
+          </li>
+          <li>
+          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
+          </li>
+          <li>
+          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
+          </li>
+          <li>
+          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-3" href="#">link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
