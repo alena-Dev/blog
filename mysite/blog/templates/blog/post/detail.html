@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
+{% block title %}Post{% endblock %}
 {% block head %}
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!--Replace with your tailwind.css once created-->
@@ -16,419 +17,407 @@
 {% endblock %}
 
 {% block content %}
+<body class="bg-white font-sans leading-normal tracking-normal">
 	<!--Nav-->
 	<nav class="bg-gray-900 p-4 mt-0 w-full">
-        <!-- <div class="container mx-auto flex items-center">
-		    <div class="flex text-white font-extrabold">
-				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="#">
-					Main Line Logo 
-				</a>
-            </div> -->
-			<div class="flex pl-4 text-sm">
-
-				
-
-				<header
-				class="container mx-auto px-4 py-6 flex items-center justify-between"
-			  >
-				<a href="#" class="font-bold text-white text-xl">Ghostwind CSS 👻 Stripe Menu</a>
-				<nav>
-				  <ul class="flex items-center justify-center font-semibold">
-					<li class="relative group px-3 py-2">
-					  <button
-						class="hover:opacity-50 text-white cursor-default "
-						aria-haspopup="true"
-					  >
-						Products
-					  </button>
-					  <div
-						class="absolute lg:-left-48 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform"
-					  >
+		<div class="flex pl-4 text-sm">
+			<header
+			class="container mx-auto px-4 py-6 flex items-center justify-between"
+			>
+			<a href="#" class="font-bold text-white text-xl">Ghostwind CSS 👻 Stripe Menu</a>
+			<nav>
+				<ul class="flex items-center justify-center font-semibold">
+				<li class="relative group px-3 py-2">
+					<button
+					class="hover:opacity-50 text-white cursor-default "
+					aria-haspopup="true"
+					>
+					Products
+					</button>
+					<div
+					class="absolute lg:-left-48 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform"
+					>
+					<div
+						class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
+					>
 						<div
-						  class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
-						>
-						  <div
-							class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm"
-						  ></div>
-						  <div class="relative z-10">
-							<div class="grid grid-cols-2 gap-6">
-							  <div>
-								<p
-								  class="uppercase tracking-wider text-indigo-500 font-medium text-[13px]"
-								>
-								  The Suite
-								</p>
-								<ul class="mt-3 text-[15px]">
-								  <li>
-									<a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Course Editor
-									  <p class="text-blue-500 font-normal">
-										All in one editor
-									  </p>
-									</a>
-								  </li>
-								  <li>
-										  <a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Accept payments
-									  <p class="text-blue-500 font-normal">
-										Pre-build payments page
-									  </p>
-									</a>
-								  </li>
-								  <li>
-										  <a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Frozen Shadows
-									  <p class="text-blue-500 font-normal">
-										Use AI to generate captions
-									  </p>
-									</a>
-								  </li>
-								</ul>
-							  </div>
-							  <div>
-								<p
-								  class="uppercase tracking-wider text-indigo-500 font-medium text-[13px]"
-								>
-								  Extensions
-								</p>
-								<ul class="mt-4 text-[15px]">
-								  <li>
-										<a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Plugins
-									  <p class="text-blue-500 font-normal">
-										Tweak existing functionality
-									  </p>
-									</a>
-								  </li>
-								  <li>
-										<a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Batch uploads
-									  <p class="text-blue-500 font-normal">
-										Get your time back
-									  </p>
-									</a>
-								  </li>
-								  <li>
-										<a
-									  href="#"
-									  class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-									>
-									  Social sharing
-									  <p class="text-blue-500 font-normal">
-										Generate content for socials
-									  </p>
-									</a>
-								  </li>
-								</ul>
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </div>
-					</li>
-					<li class="relative group px-3 py-2">
-					  <button
-						class="text-white hover:opacity-50 cursor-default"
-						aria-haspopup="true"
-					  >
-						Solutions
-					  </button>
-					  <div
-						class="absolute lg:-left-2 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[260px] transform"
-					  >
-						<div
-						  class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
-						>
-						  <div
-							class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-3 duration-500 ease-in-out rounded-sm"
-						  ></div>
-						  <div class="relative z-10">
+						class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm"
+						></div>
+						<div class="relative z-10">
+						<div class="grid grid-cols-2 gap-6">
+							<div>
 							<p
-							  class="uppercase tracking-wider text-gray-500 font-medium text-[13px]"
+								class="uppercase tracking-wider text-indigo-500 font-medium text-[13px]"
 							>
-							  Use cases
+								The Suite
 							</p>
 							<ul class="mt-3 text-[15px]">
-							  <li>
+								<li>
 								<a
-								  href="#"
-								  class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Creators
+									Course Editor
+									<p class="text-blue-500 font-normal">
+									All in one editor
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-							   class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+								</li>
+								<li>
+										<a
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Streamers
+									Accept payments
+									<p class="text-blue-500 font-normal">
+									Pre-build payments page
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+								</li>
+								<li>
+										<a
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Influence
+									Frozen Shadows
+									<p class="text-blue-500 font-normal">
+									Use AI to generate captions
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
-								>
-								  Programming
-								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-							   class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block">
-								  Design
-								</a>
-							  </li>
+								</li>
 							</ul>
-						  </div>
-						</div>
-					  </div>
-					</li>
-					<li class="px-3 py-2 relative group">
-					  <button
-						class="text-white hover:opacity-50 cursor-default"
-						aria-haspopup="true"
-					  >
-						Developers
-					  </button>
-					  <div
-						class="absolute lg:-left-24 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform"
-					  >
-						<div
-						  class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
-						>
-						  <div
-							class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-[105px] duration-500 ease-in-out rounded-sm"
-						  ></div>
-						  <div class="relative z-10">
-							<a
-							  href="#"
-							  class="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink-50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
-							>
-							  Documentation
-							  <p class="text-gray-500 font-normal">
-								Start integrating in no time
-							  </p>
-							</a>
-							<div class="grid grid-cols-2 gap-6 mt-6">
-							  <div>
-								<p
-								  class="uppercase tracking-wider text-gray-500 text-[13px]"
-								>
-								  Get started
-								</p>
-								<ul class="mt-3 text-[15px]">
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Libraries and SDKs
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Plugins
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Code samples
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Tutorials
-									</a>
-								  </li>
-								</ul>
-							  </div>
-							  <div>
-								<p
-								  class="uppercase tracking-wider text-gray-500 font-medium text-[13px]"
-								>
-								  Guides
-								</p>
-								<ul class="mt-3 text-[15px]">
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Accept online payments
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Editing video like a pro
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Automation techniques
-									</a>
-								  </li>
-								  <li>
-									<a
-									  href="#"
-									  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-									>
-									  Create stunning effects
-									</a>
-								  </li>
-								</ul>
-							  </div>
 							</div>
-						  </div>
-						</div>
-					  </div>
-					</li>
-					<li class="px-3 py-2 relative group">
-					  <button
-						class="text-white hover:opacity-50 cursor-default"
-						aria-haspopup="true"
-					  >
-						Resources
-					  </button>
-					  <div
-						class="absolute lg:-left-2 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[220px] transform"
-					  >
-						<div
-						  class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
-						>
-						  <div
-							class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-3 duration-500 ease-in-out rounded-sm"
-						  ></div>
-						  <div class="relative z-10">
-							<ul class="text-[15px]">
-							  <li>
-								<a
-								  href="#"
-								  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							<div>
+							<p
+								class="uppercase tracking-wider text-indigo-500 font-medium text-[13px]"
+							>
+								Extensions
+							</p>
+							<ul class="mt-4 text-[15px]">
+								<li>
+									<a
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Get Support
+									Plugins
+									<p class="text-blue-500 font-normal">
+									Tweak existing functionality
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								</li>
+								<li>
+									<a
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Blog
+									Batch uploads
+									<p class="text-blue-500 font-normal">
+									Get your time back
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								</li>
+								<li>
+									<a
+									href="#"
+									class="block p-2 -mx-2 rounded-lg hover:bg-indigo-100 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
 								>
-								  Case Studies
+									Social sharing
+									<p class="text-blue-500 font-normal">
+									Generate content for socials
+									</p>
 								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-								>
-								  Guides
-								</a>
-							  </li>
-							  <li>
-								<a
-								  href="#"
-								  class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
-								>
-								  News &amp; Events
-								</a>
-							  </li>
+								</li>
 							</ul>
-						  </div>
+							</div>
 						</div>
-					  </div>
-					</li>
-					<li class="px-3 py-2 relative group">
-					  <a href="#" class="hover:opacity-50 cursor-default">Pricing</a>
-					</li>
-				  </ul>
-				</nav>
-				<nav>
-				  <ul>
-					<li>
-					  <a
-						href="index.html"
-						class="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group"
-					  >
-						<span class="mr-2 text-white">Check it out</span>
-						<svg
-						  class="stroke-current"
-						  width="10"
-						  height="10"
-						  stroke-width="2"
-						  viewBox="0 0 10 10"
-						  aria-hidden="true"
-						  color="white"
+						</div>
+					</div>
+					</div>
+				</li>
+				<li class="relative group px-3 py-2">
+					<button
+					class="text-white hover:opacity-50 cursor-default"
+					aria-haspopup="true"
+					>
+					Solutions
+					</button>
+					<div
+					class="absolute lg:-left-2 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[260px] transform"
+					>
+					<div
+						class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
+					>
+						<div
+						class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-3 duration-500 ease-in-out rounded-sm"
+						></div>
+						<div class="relative z-10">
+						<p
+							class="uppercase tracking-wider text-gray-500 font-medium text-[13px]"
 						>
-						  <g fill-rule="evenodd">
-							<path
-							  class="opacity-0 group-hover:opacity-100 transition ease-in-out duration-200"
-							  d="M0 5h7"
-							></path>
-							<path
-							  class="opacity-100 group-hover:transform group-hover:translate-x-1 transition ease-in-out duration-00"
-							  d="M1 1l4 4-4 4"
-							></path>
-						  </g>
-						</svg>
-					  </a>
-					</li>
-				  </ul>
-				</nav>
-			  </header>
-
-
-
-
-			</div>
-        </div>
+							Use cases
+						</p>
+						<ul class="mt-3 text-[15px]">
+							<li>
+							<a
+								href="#"
+								class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+							>
+								Creators
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+							class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+							>
+								Streamers
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+							class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+							>
+								Influence
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+							class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block"
+							>
+								Programming
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+							class="bg-transparent bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-pink-700 via-blue-500 font-semibold hover:text-indigo-500 py-1 block">
+								Design
+							</a>
+							</li>
+						</ul>
+						</div>
+					</div>
+					</div>
+				</li>
+				<li class="px-3 py-2 relative group">
+					<button
+					class="text-white hover:opacity-50 cursor-default"
+					aria-haspopup="true"
+					>
+					Developers
+					</button>
+					<div
+					class="absolute lg:-left-24 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform"
+					>
+					<div
+						class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
+					>
+						<div
+						class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-[105px] duration-500 ease-in-out rounded-sm"
+						></div>
+						<div class="relative z-10">
+						<a
+							href="#"
+							class="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink-50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600"
+						>
+							Documentation
+							<p class="text-gray-500 font-normal">
+							Start integrating in no time
+							</p>
+						</a>
+						<div class="grid grid-cols-2 gap-6 mt-6">
+							<div>
+							<p
+								class="uppercase tracking-wider text-gray-500 text-[13px]"
+							>
+								Get started
+							</p>
+							<ul class="mt-3 text-[15px]">
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Libraries and SDKs
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Plugins
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Code samples
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Tutorials
+								</a>
+								</li>
+							</ul>
+							</div>
+							<div>
+							<p
+								class="uppercase tracking-wider text-gray-500 font-medium text-[13px]"
+							>
+								Guides
+							</p>
+							<ul class="mt-3 text-[15px]">
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Accept online payments
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Editing video like a pro
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Automation techniques
+								</a>
+								</li>
+								<li>
+								<a
+									href="#"
+									class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+								>
+									Create stunning effects
+								</a>
+								</li>
+							</ul>
+							</div>
+						</div>
+						</div>
+					</div>
+					</div>
+				</li>
+				<li class="px-3 py-2 relative group">
+					<button
+					class="text-white hover:opacity-50 cursor-default"
+					aria-haspopup="true"
+					>
+					Resources
+					</button>
+					<div
+					class="absolute lg:-left-2 top-3 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[220px] transform"
+					>
+					<div
+						class="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full"
+					>
+						<div
+						class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 -translate-x-4 transition-transform group-hover:translate-x-3 duration-500 ease-in-out rounded-sm"
+						></div>
+						<div class="relative z-10">
+						<ul class="text-[15px]">
+							<li>
+							<a
+								href="#"
+								class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							>
+								Get Support
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+								class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							>
+								Blog
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+								class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							>
+								Case Studies
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+								class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							>
+								Guides
+							</a>
+							</li>
+							<li>
+							<a
+								href="#"
+								class="text-gray-600 hover:text-gray-800 py-1 block font-normal"
+							>
+								News &amp; Events
+							</a>
+							</li>
+						</ul>
+						</div>
+					</div>
+					</div>
+				</li>
+				<li class="px-3 py-2 relative group">
+					<a href="#" class="hover:opacity-50 cursor-default">Pricing</a>
+				</li>
+				</ul>
+			</nav>
+			<nav>
+				<ul>
+				<li>
+					<a
+					href="index.html"
+					class="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group"
+					>
+					<span class="mr-2 text-white">Check it out</span>
+					<svg
+						class="stroke-current"
+						width="10"
+						height="10"
+						stroke-width="2"
+						viewBox="0 0 10 10"
+						aria-hidden="true"
+						color="white"
+					>
+						<g fill-rule="evenodd">
+						<path
+							class="opacity-0 group-hover:opacity-100 transition ease-in-out duration-200"
+							d="M0 5h7"
+						></path>
+						<path
+							class="opacity-100 group-hover:transform group-hover:translate-x-1 transition ease-in-out duration-00"
+							d="M1 1l4 4-4 4"
+						></path>
+						</g>
+					</svg>
+					</a>
+				</li>
+				</ul>
+			</nav>
+			</header>
+		</div>
+	</div>
 	</nav>
 	
 	<!--slide in nav-->
@@ -459,8 +448,8 @@
 	
 	<!--Title-->
 	<div class="text-center pt-16 md:pt-32">
-		<p class="text-sm md:text-base text-green-500 font-bold">04 JULY 2023 <span class="text-gray-900">/</span> GETTING STARTED</p>
-		<h1 class="font-bold break-normal text-3xl md:text-5xl">Welcome to Ghostwind CSS</h1>
+		<p class="text-sm md:text-base text-green-500 font-bold">{{ post.publish }} <span class="text-gray-900">/</span> {{ post.slug }}</p>
+		<h1 class="font-bold break-normal text-3xl md:text-5xl">{{ post.title }}</h1>
 	</div>
 
 	<!--image-->
@@ -474,35 +463,15 @@
 			<div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
 				
 				<!--Post Content-->
-				
 
 				<!--Lead Para-->
 				<p class="text-2xl md:text-3xl mb-5">
 					👋 Welcome fellow <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindcss.com">Tailwind CSS</a> and <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.ghost.org">Ghost</a> fan.  This starter template is an attempt to replicate the default Ghost theme <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
 				</p>
 
-				<p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS classes (although there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert the classes into components.</p>				
+				<p class="py-6">{{ post.body }}</p>				
 			
-				<p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum elementum.</p>
-
-				<ol>
-					<li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.</li>
-					<li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec felis.</li>
-					<li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit, elementum odio et, consequat tellus.</li>
-				</ol>
-
 				<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
-
-				<p class="py-6">Example code block:</p>
-				<pre class="bg-gray-900 rounded text-white font-mono text-base p-4">
-					<code class="break-words whitespace-pre-wrap">
-&lt;header class="site-header outer"&gt;
-  &lt;div class="inner"&gt;
-    {{&gt; "site-nav"}}
-  &lt;/div&gt;
-&lt;/header&gt;
-					</code>
-				</pre>
 							
 				<!--/ Post Content-->
 						
@@ -526,18 +495,18 @@
     </button>
 
 	<div class="bg-gray-200">
-	
 		<div class="container w-full max-w-6xl mx-auto px-2 py-8">
 			<div class="flex flex-wrap -mx-2">
+				{% for other in other_posts %}
 				<div class="w-full md:w-1/3 px-2 pb-12">
 					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
 						<a href="#" class="no-underline hover:no-underline">
 								<img src="https://source.unsplash.com/8rj4sz9YLCI/400x200" class="h-48 w-full rounded-t shadow-lg">
 								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">GETTING STARTED</p>
-									<div class="font-bold text-xl text-gray-900">Aperture Science</div>
+									<p class="text-gray-600 text-xs md:text-sm">{{ other.slug }}</p>
+									<div class="font-bold text-xl text-gray-900">{{ other.title }}</div>
 									<p class="text-gray-800 font-serif text-base mb-5">
-										I’ll be honest, we’re throwing science at the wall here to see what sticks. No idea what it’ll do. Probably nothing. Best case scenario you might get some super powers. Worst case, some tumors, which we’ll cut out.
+										{{ other.body|truncatewords:20 }}
 									</p>
 								</div>
 								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
@@ -547,49 +516,10 @@
 						</a>
 					</div>
 				</div>
-				<div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/_AjqGGafofE/400x200" class="h-48 w-full rounded-t shadow">
-								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">UNDERWATER</p>
-									<div class="font-bold text-xl text-gray-900">Biolumini algae diatomeae ecology.</div>
-									<p class="text-gray-800 font-serif text-base mb-5">
-										Lorem ipsum dolor sit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-									</p>
-								</div>
-								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
-									<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">4 MIN READ</p>
-								</div>
-						</a>
-					</div>
-				</div>
-				<div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="no-underline hover:no-underline">
-								<img src="https://source.unsplash.com/DEa8_vxKlEo/400x200" class="h-48 w-full rounded-t shadow">
-								<div class="p-6 h-auto md:h-48">	
-									<p class="text-gray-600 text-xs md:text-sm">FOREST</p>
-									<div class="font-bold text-xl text-gray-900">What is life but a teardrop in the eye of infinity?</div>
-									<p class="text-gray-800 font-serif text-base mb-5">
-										Mollis pretium integer eros et dui orci, lectus nec elit sagittis neque. Dignissim ac nullam semper aliquet volutpat, ut scelerisque.
-									</p>
-								</div>
-								<div class="flex items-center justify-between inset-x-0 bottom-0 p-6">
-									<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-									<p class="text-gray-600 text-xs md:text-sm">7 MIN READ</p>
-								</div>
-						</a>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
-
-
-		</div>
-
-	
+	</div>
 
 <script>
 	/* Progress bar */
