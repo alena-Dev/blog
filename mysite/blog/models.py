@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -14,7 +15,9 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published' # варианты статуса, пары "значение-метка"
 
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250) # короткая метка
+    slug = models.SlugField(max_length=250, # короткая метка
+                            unique_for_date='publish') # поле slug должно быть уникальным для даты, сохраненной в поле publish, чтобы избежать дублирование записей
+
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE, # при удалении пользователя удалятся все его посты
                                related_name='blog_posts') # для обращения к объектам из объекта User, используя обозначение user.blog_posts
@@ -37,3 +40,10 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+    def get_absolute_url(self): # формирует URL-адрес динамически
+        return reverse("blog:post_detail", args=[self.publish.year, # позиционный аргумент
+                                                 self.publish.month,
+                                                 self.publish.day,
+                                                 self.slug])
+    

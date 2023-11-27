@@ -65,8 +65,9 @@
 				<!--Posts-->			
 				
 				<!--Lead Card-->
+				{% if page_number == '1' %}
 				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-					<a href="{% url 'blog:post_detail' latest_post.id %}" class="flex flex-wrap no-underline hover:no-underline">
+					<a href="{{ latest_post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
 						<div class="w-full md:w-2/3 rounded-t">	
 							<img src="https://source.unsplash.com/collection/494263/800x600" class="h-full w-full shadow">
 						</div>
@@ -91,6 +92,7 @@
 					</a>
 				</div>
 				<!--/Lead Card-->
+				{% endif %}
 				
 				<!--Posts Container-->
 				<div class="flex flex-wrap justify-between pt-12 -mx-6">
@@ -100,7 +102,7 @@
 					<!--1/2 col -->
 					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="{% url 'blog:post_detail' post.id %}" class="flex flex-wrap no-underline hover:no-underline">
+							<a href="{{ post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
 								<img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6">{{ post.publish }} by {{ post.author }}</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">{{ post.title }}</div>
@@ -120,8 +122,8 @@
 				{% endfor %}
 				</div>
 				<!--/ Post Content-->	
-				
 			</div>
+			{% include "./pagination.html" with page=posts %}
 			{% include "./subscribe.html" %}
 		</div>
 	</div>
