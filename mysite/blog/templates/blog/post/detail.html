@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}Post{% endblock %}
-{% block head %}
+{% block css %}
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!--Replace with your tailwind.css once created-->
 	
@@ -470,7 +470,7 @@
 				</p>
 
 				<p class="py-6">{{ post.body }}</p>				
-			
+				<a href="{% url "blog:post_share" post.id %}" class="bg-transparent border border-gray-500 hover:border-green-500 text-normal text-gray-500 hover:text-green-500 font-normal py-2 px-4 rounded-full">Share this post</a>
 				<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
 							
 				<!--/ Post Content-->
@@ -559,5 +559,6 @@
 const t=document.querySelector(".js-scroll-top");if(t){t.onclick=()=>{window.scrollTo({top:0,behavior:"smooth"})};const e=document.querySelector(".scroll-top path"),o=e.getTotalLength();e.style.transition=e.style.WebkitTransition="none",e.style.strokeDasharray=`${o} ${o}`,e.style.strokeDashoffset=o,e.getBoundingClientRect(),e.style.transition=e.style.WebkitTransition="stroke-dashoffset 10ms linear";const n=function(){const t=window.scrollY||window.scrollTopBtn||document.documentElement.scrollTopBtn,n=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight),s=Math.max(document.documentElement.clientHeight,window.innerHeight||0);var l=o-t*o/(n-s);e.style.strokeDashoffset=l};n();const s=100;window.addEventListener("scroll",(function(e){n();(window.scrollY||window.scrollTopBtn||document.getElementsByTagName("html")[0].scrollTopBtn)>s?t.classList.add("is-active"):t.classList.remove("is-active")}),!1)}	
 
 </script>
+</body>
 {% endblock %}
 
