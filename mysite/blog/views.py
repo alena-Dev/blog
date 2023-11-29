@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .forms import EmailPostForm
+from .forms import EmailPostForm, CommentForm
 from django.core.mail import send_mail
 from config import EMAIL_HOST_USER
+from django.views.decorators.http import require_POST
 
 '''Представление на основе класса для отображения списка постов
 
@@ -42,10 +43,14 @@ def post_detail(request, year, month, day, post):
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
-    
+    comments = post.comments.filter(active=True) # список активных комментариев к этому посту (queryset)
+    form = CommentForm() # форма для комментиррования пользователями
+
     return render(request, 'blog/post/detail.html',
                   {'post': post,
-                   'list_posts': Post.objects.exclude(id=post.id).all()[:3]}) # returns the first 3 objects
+                   'list_posts': Post.objects.exclude(id=post.id).all()[:3], # returns the first 3 objects
+                   'comments': comments,
+                   'form': form})
 
 def post_share(request, post_id):
     # извлечь пост по id
@@ -74,3 +79,22 @@ def post_share(request, post_id):
                   {'post': post,
                    'form': form,
                    'sent': sent})
+
+# разрешить запросы методом POST только для этого представления
+@require_POST
+def post_comment(request, post_id): # передача поста на обработку
+    post = get_object_or_404(Post,
+                             id=post_id,
+                             status=Post.Status.PUBLISHED)
+    comment = None
+    # комментарий был отправлен
+    form = CommentForm(data=request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False) # создать объект класса Comment, не сохраняя его в бд (метод save() доступен для FormModel, но не для Form)
+        comment.post = post # пост назначается созданному комментарию
+        comment.save() # сохранить комментарий в бд
+
+    return render(request, 'blog/post/includes/comment.html',
+                  {'post': post,
+                    'form': form,
+                    'comment': comment})

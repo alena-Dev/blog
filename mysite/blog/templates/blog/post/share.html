@@ -10,13 +10,10 @@
 <body>
   <!-- partial:index.partial.html -->
   
-    
     <div id="container"></div>
     <script id="template">
-      
       <div class="contact-wrapper">
           <div {% if sent %}class="envelope active"{% else %}class="envelope" {% endif %}>
-            {% if sent %}<h1>Success</h1>{% endif %}
             <div class="back paper"></div>
             <div class="content">
               <div class="form-wrapper">

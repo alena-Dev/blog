@@ -469,14 +469,17 @@
 					👋 Welcome fellow <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.tailwindcss.com">Tailwind CSS</a> and <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://www.ghost.org">Ghost</a> fan.  This starter template is an attempt to replicate the default Ghost theme <a class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500" href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
 				</p>
 
-				<p class="py-6">{{ post.body }}</p>				
+				<p class="py-6">{{ post.body }}</p>	
+				<!--Share button -->			
 				<a href="{% url "blog:post_share" post.id %}" class="bg-transparent border border-gray-500 hover:border-green-500 text-normal text-gray-500 hover:text-green-500 font-normal py-2 px-4 rounded-full">Share this post</a>
+				
 				<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
 							
 				<!--/ Post Content-->
 						
 			</div>
-			{% include "./subscribe.html" %}
+			{% include "./includes/comment.html" %}
+			{% include "./includes/subscribe.html" %}
 		</div>
 	</div>
 </div>

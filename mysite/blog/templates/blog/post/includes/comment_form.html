@@ -1,0 +1,24 @@
+
+<div class="fill">
+
+    <form action="{% url "blog:post_comment" post.id %}" method="post">
+        <div class="input">
+            <label>Name</label>
+            {{ form.name }}
+        </div>
+        <div class="input">
+            <label>Email</label>
+            {{ form.email }}
+        </div>
+        <div class="input">
+            <label>Text</label>
+            {{ form.body }}
+        </div>
+        {% csrf_token %}
+        <div class="submit">
+            <div>
+              <input class="submit-card" type="submit" value="Add comment">
+            </div>
+          </div>
+    </form>
+</div>
