@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from .forms import EmailPostForm
 from django.core.mail import send_mail
+from config import EMAIL_HOST_USER
 
 '''Представление на основе класса для отображения списка постов
 
@@ -63,7 +64,7 @@ def post_share(request, post_id):
                       f"{post.title}"
             message = f"Read {post.title} at {post_url}\n\n" \
                       f"{cd['name']}\'s comments:{cd['comments']}"
-            send_mail(subject, message, 'alenakurakova59@gmail.com', [cd['to']])
+            send_mail(subject, message, f'{EMAIL_HOST_USER}', [cd['to']])
             sent = True
 
     else: # отобразить пустую форму
