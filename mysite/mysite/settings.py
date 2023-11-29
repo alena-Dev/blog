@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from config import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,7 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # конфигурация сервера электронной почты
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alenakurakova59@gmail.com'
-EMAIL_HOST_PASSWORD = 'rsuoxjneldhlujhe'
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = 587
 EMAIL_USE_TLS =True
