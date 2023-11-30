@@ -23,15 +23,12 @@ class PostListView(ListView):
 '''
 def post_list(request, tag_slug=None):
     post_list = Post.published.all()
-    latest_post = post_list.latest('id') # отобразить последний пост как главный
     
     tag = None
 
     if tag_slug: # фильтровать посты по тегу
         tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
-    else:
-        post_list = post_list.exclude(id=latest_post.id) # отобразить остальные посты (кроме главного)
 
     paginator = Paginator(post_list, 4) # отображать по 4 поста на страницу
     page_number = request.GET.get('page', 1) # GET-параметр page содержит запрошенный номер страницы. Если его нет, загрузить первую страницу результатов
@@ -45,7 +42,6 @@ def post_list(request, tag_slug=None):
 
     return render(request, 'blog/post/list.html',
                   {'posts': posts, # 'Page' object
-                   'latest_post': latest_post,
                    'page_number': int(page_number),
                    'tag': tag})
 

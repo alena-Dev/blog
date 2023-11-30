@@ -1,0 +1,182 @@
+
+<!--Posts-->			
+
+<!--Lead Card-->
+
+<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+    <div class="w-full md:w-2/3 rounded-t">	
+        <img src="https://source.unsplash.com/collection/494263/800x600" class="h-full w-full shadow">
+    </div>
+
+    <div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
+                {{ lead_post.publish }} by {{ lead_post.author }}</p>
+            <div class="w-full font-bold text-xl text-gray-900 px-6">
+                <a href="{{ lead_post.get_absolute_url }}">
+                    {{ lead_post.title }}
+                </a>
+            </div>
+            <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                {{ lead_post.body|truncatewords:80 }}
+            </p>
+            <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                {% for tag in lead_post.tags.all %}
+                    <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                        #{{ tag.name }}
+                    </a>
+                    {% if not forloop.last %}, {% endif %} 
+                {% endfor %}</p>
+        </div>
+
+        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/Lead Card-->
+
+<!--Posts Container-->
+
+<div class="flex flex-wrap justify-between pt-12 -mx-6">
+
+    <!--1/3 col -->
+
+    {% for post in 1_3_posts %}
+    <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <a href="{{ post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
+                <img src="https://source.unsplash.com/collection/225/800x600" class="h-64 w-full rounded-t pb-6">
+                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    {{ post.publish }} by {{ post.author }}
+                </p>
+                <div class="w-full font-bold text-xl text-gray-900 px-6">
+                    {{ post.title }}
+                </div>
+                <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                    {{ post.body|truncatewords:50 }} 
+                </p>
+                <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
+                    {% for tag in post.tags.all %}
+                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                            #{{ tag.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %} <!-- теги отделяются запятыми -->
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <!--1/2 col -->
+
+    {% for post in 1_2_posts %}
+    <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <a href="{{ post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
+                <img src="https://source.unsplash.com/collection/3657445/800x600" class="h-full w-full rounded-t pb-6">
+                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    {{ post.publish }} by {{ post.author }}
+                </p>
+                <div class="w-full font-bold text-xl text-gray-900 px-6">
+                    {{ post.title }}
+                </div>
+                <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                    {{ post.body|truncatewords:50 }} 
+                </p>
+                <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
+                    {% for tag in post.tags.all %}
+                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                            #{{ tag.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %} <!-- теги отделяются запятыми -->
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!--2/3 col -->
+    <div class="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <a href="{{ 2_3_post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
+                <img src="https://source.unsplash.com/collection/325867/800x600" class="h-full w-full rounded-t pb-6">
+                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    {{ 2_3_post.publish }} by {{ 2_3_post.author }}
+                </p>
+                <div class="w-full font-bold text-xl text-gray-900 px-6">
+                    {{ 2_3_post.title }}
+                </div>
+                <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                    {{ 2_3_post.body|truncatewords:50 }}  
+                </p>
+                <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
+                    {% for tag in 2_3_post.tags.all %}
+                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                            #{{ tag.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %} <!-- теги отделяются запятыми -->
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+            </div>
+        </div>
+    </div>
+
+    <!--1/3 col -->
+    <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <a href="{{ last_post.get_absolute_url }}" class="flex flex-wrap no-underline hover:no-underline">
+                <img src="https://source.unsplash.com/collection/1118905/800x600" class="h-full w-full rounded-t pb-6">
+                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    {{ last_post.publish }} by {{ last_post.author }}
+                </p>
+                <div class="w-full font-bold text-xl text-gray-900 px-6">
+                    {{ last_post.title }}
+                </div>
+                <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                    {{ last_post.body|truncatewords:50 }} 
+                </p>
+                <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
+                    {% for tag in last_post.tags.all %}
+                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                            #{{ tag.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %} <!-- теги отделяются запятыми -->
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
+                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+            </div>
+        </div>
+    </div>
+
+</div>
