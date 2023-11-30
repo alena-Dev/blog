@@ -6,6 +6,7 @@ from .forms import EmailPostForm, CommentForm
 from django.core.mail import send_mail
 from config import EMAIL_HOST_USER
 from django.views.decorators.http import require_POST
+from taggit.models import Tag
 
 '''Представление на основе класса для отображения списка постов
 
@@ -19,11 +20,21 @@ class PostListView(ListView):
 '''
 Представление на основе функции для отображения списка постов
 '''
-def post_list(request):
+def post_list(request, tag_slug=None):
     post_list = Post.published.all()
+    latest_post = post_list.latest('id') # отобразить последний пост как главный
+    
+    tag = None
 
-    paginator = Paginator(post_list, 5) # отображать по 5 поста на страницу
+    if tag_slug: # фильтровать посты по тегу
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        post_list = post_list.filter(tags__in=[tag])
+    else:
+        post_list = post_list.exclude(id=latest_post.id) # отобразить остальные посты (кроме главного)
+
+    paginator = Paginator(post_list, 4) # отображать по 4 поста на страницу
     page_number = request.GET.get('page', 1) # GET-параметр page содержит запрошенный номер страницы. Если его нет, загрузить первую страницу результатов
+    
     try:
         posts = paginator.page(page_number) # передаем номер страницы и объект posts в шаблон
     except PageNotAnInteger:
@@ -33,8 +44,9 @@ def post_list(request):
 
     return render(request, 'blog/post/list.html',
                   {'posts': posts, # 'Page' object
-                   'latest_post': post_list.latest('id'),
-                   'page_number': int(page_number)})
+                   'latest_post': latest_post,
+                   'page_number': int(page_number),
+                   'tag': tag})
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, 
