@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from config import EMAIL_HOST_USER
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
+from django.db.models import Count
 
 '''Представление на основе класса для отображения списка постов
 
@@ -55,14 +56,20 @@ def post_detail(request, year, month, day, post):
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
+    
     comments = post.comments.filter(active=True) # список активных комментариев к этому посту (queryset)
+
     form = CommentForm() # форма для комментиррования пользователями
+
+    post_tags_ids = post.tags.values_list('id', flat=True) # теги текущего поста
+    similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id) # список похожих постов с такими же тегами
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3] # последние посты 
 
     return render(request, 'blog/post/detail.html',
                   {'post': post,
-                   'list_posts': Post.objects.exclude(id=post.id).all()[:3], # returns the first 3 objects
                    'comments': comments,
-                   'form': form})
+                   'form': form,
+                   'similar_posts': similar_posts})
 
 def post_share(request, post_id):
     # извлечь пост по id
