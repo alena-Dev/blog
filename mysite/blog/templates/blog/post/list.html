@@ -66,7 +66,7 @@
 					
 				<!--Posts-->	
 				{% if page_number == 1 and tag == none %}
-					{% show_latest_posts %}
+					{% show_latest_posts 4 %}
 					<h3>Most commented posts.</h3>
 					{% get_most_commented_posts as most_commented_posts %}
 					<ul>

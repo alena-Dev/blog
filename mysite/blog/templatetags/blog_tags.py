@@ -14,10 +14,7 @@ def total_posts(): # имя функции в качестве имени тег
 def show_latest_posts(count=9):
     latest_posts = Post.published.order_by('-publish')[:count]
     return {'lead_post': latest_posts[0],
-            '1_3_posts': latest_posts[1:4],
-            '1_2_posts': latest_posts[4:6],
-            '2_3_post': latest_posts[7],
-            'last_post': latest_posts[8]}
+            'posts': latest_posts[1:count]}
 
 @register.simple_tag
 def get_most_commented_posts(count=5):
