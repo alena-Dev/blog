@@ -44,7 +44,7 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
     
-    def get_absolute_url(self): # формирует URL-адрес динамически
+    def get_absolute_url(self): # формирует URL-адрес динамически; используется для формирования адреса в карте сайта
         return reverse("blog:post_detail", args=[self.publish.year, # позиционный аргумент
                                                  self.publish.month,
                                                  self.publish.day,
