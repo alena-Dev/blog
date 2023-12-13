@@ -12,3 +12,6 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment # чтобы создать форму из модели
         fields = ['name', 'email', 'body'] # включить только эти поля
+
+class SearchForm(forms.Form):
+    query = forms.CharField() # используется, чтобы давать пользователям возможность вводить поисковые запросы
